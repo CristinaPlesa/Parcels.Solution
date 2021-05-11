@@ -8,7 +8,7 @@ namespace Parcels.Controllers
     [Route("/")]
     public ActionResult Index()
     {
-      Parcel starterParcel = new Parcel("Add first Parcel to Shipping list");
+      Parcel starterParcel = new Parcel(1, 1, 1, 1);
       return View(starterParcel);
     }
   }
