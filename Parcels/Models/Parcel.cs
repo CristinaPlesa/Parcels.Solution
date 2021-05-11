@@ -17,6 +17,12 @@ namespace Parcels.Models
       Weight = weight;
     }
 
+    public double Volume()
+    {
+      double volumeResult = Length * Width * Height;
+      return volumeResult;
+    }
+
     public static void ClearAll()
     {
       // _instances.Clear();
