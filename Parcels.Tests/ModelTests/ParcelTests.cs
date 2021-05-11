@@ -22,9 +22,10 @@ namespace Parcels.Tests
       double parcelWidth = 4;
       double parcelHeight = 2;
       double parcelWeight = 3.27;
+      double parcelDistance = 1000;
 
       // Act
-      Parcel newParcel = new Parcel(parcelLength, parcelWidth, parcelHeight, parcelWeight);
+      Parcel newParcel = new Parcel(parcelLength, parcelWidth, parcelHeight, parcelWeight, parcelDistance);
       
       // Assert
       Assert.AreEqual(typeof(Parcel), newParcel.GetType());
@@ -32,6 +33,7 @@ namespace Parcels.Tests
       Assert.AreEqual(parcelWidth, newParcel.Width);
       Assert.AreEqual(parcelHeight, newParcel.Height);
       Assert.AreEqual(parcelWeight, newParcel.Weight);
+      Assert.AreEqual(parcelDistance, newParcel.DistanceToDestination);
     }
 
     [TestMethod]
@@ -42,16 +44,35 @@ namespace Parcels.Tests
       double parcelWidth = 4;
       double parcelHeight = 2;
       double parcelWeight = 3.27;
+      double parcelDistance = 1000;
       double output = 44;
 
       // Act
-      Parcel newParcel = new Parcel(parcelLength, parcelWidth, parcelHeight, parcelWeight);
+      Parcel newParcel = new Parcel(parcelLength, parcelWidth, parcelHeight, parcelWeight, parcelDistance);
       double result = newParcel.Volume();
 
       // Assert
       Assert.AreEqual(output, result);
     }
 
+    [TestMethod]
+    public void ShippingCost_CalculateShippingCostByWeightAndDistance_Double()
+    {
+      //Arrange
+      double parcelLength = 5.5;
+      double parcelWidth = 4;
+      double parcelHeight = 2;
+      double parcelWeight = 3.27;
+      double parcelDistance = 1000;
+      double output = parcelDistance * parcelWeight * .002;
+
+      //Act
+      Parcel newParcel = new Parcel(parcelLength, parcelWidth, parcelHeight, parcelWeight, parcelDistance);
+      double result = newParcel.ShippingCost();
+
+      //Assert
+      Assert.AreEqual(output, result);
+    }
   }
 }
 
