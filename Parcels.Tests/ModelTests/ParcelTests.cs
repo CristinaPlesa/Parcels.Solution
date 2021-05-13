@@ -5,7 +5,7 @@ using Parcels.Models;
 
 namespace Parcels.Tests
 {
-[TestClass]
+[ TestClass]
   public class ParcelTests : IDisposable
   {
 
@@ -75,5 +75,3 @@ namespace Parcels.Tests
     }
   }
 }
-
-//NameOfMethodWeAreTesting_DescriptionOfBehavior_ExpectedReturnValue()
